@@ -15,7 +15,7 @@
             android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:background="@color/emerald"
                 android:minHeight="?attr/actionBarSize"
                 app:title=""
@@ -25,11 +25,15 @@
                 android:fitsSystemWindows="true"/>
         <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/frameLayout">
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:id="@+id/recordFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:backgroundTint="#fff200"
-                    android:srcCompat="@drawable/ic_keyboard_voice_black_24dp"
-                    android:si/>
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="40dp"
+                    android:onClick="recordFabListener"
+                    app:srcCompat="@drawable/ic_keyboard_voice_black_24dp"
+                    android:padding="10dp"/>
         </FrameLayout>
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView

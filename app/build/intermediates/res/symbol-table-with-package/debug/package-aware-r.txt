@@ -1042,6 +1042,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_keyboard_voice_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_black_24dp
@@ -1236,6 +1237,8 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recordButton
+id recordFab
 id recordingText
 id recyclerView
 id right
@@ -1281,6 +1284,7 @@ id src_in
 id src_over
 id standard
 id start
+id stopButton
 id stretch
 id submenuarrow
 id submit_area
@@ -1399,6 +1403,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_main
+layout fragment_recorder
 layout fragment_timer
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include

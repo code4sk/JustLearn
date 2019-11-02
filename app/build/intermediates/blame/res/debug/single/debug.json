@@ -1100,6 +1100,10 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\62dcde56f2503d380025d13f0f66f90e\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_keyboard_voice_black_24dp.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\drawable\\ic_keyboard_voice_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_tooltip_exit.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\62dcde56f2503d380025d13f0f66f90e\\res\\anim\\abc_tooltip_exit.xml"
     },
@@ -1602,6 +1606,10 @@
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_on_to_off_mtrl_animation.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\62dcde56f2503d380025d13f0f66f90e\\res\\drawable\\btn_radio_on_to_off_mtrl_animation.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_recorder.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\layout\\fragment_recorder.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20_abc_alert_dialog_title_material.xml.flat",

@@ -5,15 +5,14 @@
         android:layout_width="match_parent"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         tools:context=".MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="395dp"
             android:layout_height="64dp"
-            android:background="@color/emerald"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:id="@+id/constraintLayout"
-    >
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/constraintLayout">
 
         <TextView
                 android:text="My Recordings"

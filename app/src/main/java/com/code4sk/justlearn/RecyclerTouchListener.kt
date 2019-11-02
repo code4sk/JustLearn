@@ -19,14 +19,14 @@ class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, listen
 
     private val gestureDetectorObject = object: GestureDetector.SimpleOnGestureListener(){
         override fun onSingleTapUp(e: MotionEvent): Boolean {
-//            Log.d(tag, "single tap: $e")
+//            Log.d(logTag, "single tap: $e")
             val childView = recyclerView.findChildViewUnder(e.x, e.y)!!
             listener.onSingleTap(childView, recyclerView.getChildAdapterPosition(childView))
             return true
         }
 
         override fun onLongPress(e: MotionEvent) {
-//            Log.d(tag, "long tap: $e")
+//            Log.d(logTag, "long tap: $e")
             val childView = recyclerView.findChildViewUnder(e.x, e.y)!!
             listener.onLongTap(childView, recyclerView.getChildAdapterPosition(childView))
             super.onLongPress(e)
@@ -36,7 +36,7 @@ class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, listen
     private val gestureDetector = GestureDetectorCompat(context, gestureDetectorObject)
     override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
         val result = gestureDetector.onTouchEvent(e)
-//        Log.d(tag, "onInterceptTouchEvent $result")
+//        Log.d(logTag, "onInterceptTouchEvent $result")
         return result
 //        return super.onInterceptTouchEvent(rv, e)
     }

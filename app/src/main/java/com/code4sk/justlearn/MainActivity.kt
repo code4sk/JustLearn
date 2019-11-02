@@ -11,7 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
-const val tag = "checkShubham"
+const val logTag = "checkShubham"
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private val manager = supportFragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        Log.d(tag, "${drawerLayout.isDrawerOpen(GravityCompat.START)}")
+        Log.d(logTag, "${drawerLayout.isDrawerOpen(GravityCompat.START)}")
         if(this.drawerLayout.isDrawerOpen(GravityCompat.START)){
             this.drawerLayout.closeDrawer(GravityCompat.START)
         }
@@ -64,9 +64,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(Intent(this, SearchWordActivity::class.java))
     }
 
-    fun openDrawer(view: View) {
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
-        drawerLayout.openDrawer(GravityCompat.START)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d(logTag, "$requestCode ----- $resultCode $data")
+    }
+
+    fun recordFabListener(view: View){
+//        val fileUri = File(Environment.getExternalStorageDirectory().absolutePath,
+//            "myVoice.mp3")
+//        val pathUri = File(fileUri.path)
+//        val path = Uri.fromFile(pathUri)
+//        Log.d(logTag, path.toString())
+//        val intent = Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+//        intent.putExtra(MediaStore.EXTRA_OUTPUT, path)
+//
+//        startActivityForResult(intent, 200)
+        val transaction = manager.beginTransaction()
+        val fragment = RecorderFragment()
+        transaction.replace(R.id.frameLayout, fragment)
+        transaction.addToBackStack("fragment_backstack")
+        transaction.commit()
     }
 
     private fun launchTimerActivity(){

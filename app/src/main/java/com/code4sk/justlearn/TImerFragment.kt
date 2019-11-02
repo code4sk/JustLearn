@@ -2,7 +2,6 @@ package com.code4sk.justlearn
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -18,7 +17,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 class TimerFragment(private val ctx: Activity): Fragment(), RecyclerTouchListener.OnRecyclerTouchListener {
@@ -27,6 +25,7 @@ class TimerFragment(private val ctx: Activity): Fragment(), RecyclerTouchListene
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val recList: ArrayList <File> = ArrayList()
+//        toolbar.background = R.color.emerald
         val path = Environment.getExternalStorageDirectory().toString()
         if (ContextCompat.checkSelfPermission(ctx,
                 Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(ctx,
@@ -36,12 +35,11 @@ class TimerFragment(private val ctx: Activity): Fragment(), RecyclerTouchListene
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
             ActivityCompat.requestPermissions(ctx, permissions,0)
-            Log.d(com.code4sk.justlearn.tag, "perm wrong")
+            Log.d(com.code4sk.justlearn.logTag, "perm wrong")
         }
         else{
             val dir = File(path, "Recordings").walk(FileWalkDirection.BOTTOM_UP)
             dir.forEach {
-                Log.d(com.code4sk.justlearn.tag, it.toString())
                 if(!it.isDirectory)
                     recList.add(it)
             }
@@ -72,7 +70,7 @@ class TimerFragment(private val ctx: Activity): Fragment(), RecyclerTouchListene
     }
 
     private fun playMedia(file: Uri) {
-        Log.d(com.code4sk.justlearn.tag, file.toString())
+        Log.d(com.code4sk.justlearn.logTag, file.toString())
         val intent = Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(file, "audio/*")
         }
@@ -80,7 +78,7 @@ class TimerFragment(private val ctx: Activity): Fragment(), RecyclerTouchListene
             startActivity(intent)
         }
         else{
-            Log.d(com.code4sk.justlearn.tag,"activity not found")
+            Log.d(com.code4sk.justlearn.logTag,"activity not found")
         }
     }
 }
