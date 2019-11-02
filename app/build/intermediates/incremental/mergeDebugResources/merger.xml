@@ -3717,7 +3717,7 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBarOverlay">true</item>
 
-    </style><style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/><style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/></file><file name="activity_timer" path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\layout\activity_timer.xml" qualifiers="" type="layout"/><file name="single_recording" path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\layout\single_recording.xml" qualifiers="" type="layout"/><file name="ic_menu_emerald_24dp" path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\drawable\ic_menu_emerald_24dp.xml" qualifiers="" type="drawable"/><file path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\values-v21\styles.xml" qualifiers="v21"><style name="AppTheme.NoActionBar">
+    </style><style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/><style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/></file><file name="single_recording" path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\layout\single_recording.xml" qualifiers="" type="layout"/><file name="ic_menu_emerald_24dp" path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\drawable\ic_menu_emerald_24dp.xml" qualifiers="" type="drawable"/><file path="C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\res\values-v21\styles.xml" qualifiers="v21"><style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>

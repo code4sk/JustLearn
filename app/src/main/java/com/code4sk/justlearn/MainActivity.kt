@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun launchTimerActivity(){
-//        startActivity(Intent(this, TimerActivity::class.java))
         val transaction = manager.beginTransaction()
         val fragment = TimerFragment(this)
         transaction.replace(R.id.frameLayout, fragment)

@@ -24,8 +24,6 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme.NoActionBar" >
-        <activity android:name="com.code4sk.justlearn.TimerActivity" >
-        </activity>
         <activity
             android:name="com.code4sk.justlearn.SearchWordActivity"
             android:screenOrientation="portrait" >
