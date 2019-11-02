@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -12,19 +13,35 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 const val tag = "checkShubham"
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private val manager = supportFragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
+        setSupportActionBar(toolbar)
+        val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
+        val toggle = ActionBarDrawerToggle(this, drawer, toolbar,
+            R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer.addDrawerListener(toggle)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        toggle.syncState()
         val nv = findViewById<NavigationView>(R.id.navigation)
         nv.setNavigationItemSelectedListener(this)
+        showFragment()
+    }
+
+    private fun showFragment(){
+        val transaction = manager.beginTransaction()
+        val fragment = NavigationFragment()
+        transaction.replace(R.id.frameLayout, fragment)
+        transaction.addToBackStack("fragment_backstack")
+        transaction.commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-//        Log.d(tag, "${item.itemId} ----- ${R.id.menuTimer} ")
         return when(item.itemId){
             R.id.menuTimer -> {
                 launchTimerActivity()
+                item.isChecked = true
                 true
             }
             else -> {
@@ -53,7 +70,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun launchTimerActivity(){
-        startActivity(Intent(this, TimerActivity::class.java))
+//        startActivity(Intent(this, TimerActivity::class.java))
+        val transaction = manager.beginTransaction()
+        val fragment = TimerFragment(this)
+        transaction.replace(R.id.frameLayout, fragment)
+        transaction.addToBackStack("fragment_backstack")
+        transaction.commit()
+        this.drawerLayout.closeDrawer(GravityCompat.START)
     }
 
 }

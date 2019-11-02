@@ -25,7 +25,6 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
-        supportActionBar?.hide()
         val recList: ArrayList <File> = ArrayList()
         val path = Environment.getExternalStorageDirectory().toString()
         if (ContextCompat.checkSelfPermission(this,

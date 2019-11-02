@@ -95,7 +95,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\us
 	android:allowBackup
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:11:13-39
 	android:theme
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:16:13-44
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:16:13-56
 activity#com.code4sk.justlearn.TimerActivity
 ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:17:9-18:20
 	android:name
