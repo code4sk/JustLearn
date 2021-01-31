@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Just Learn</string>
     <string name="timer">Timer</string>
+    <string name="words">Words</string>
 </resources>

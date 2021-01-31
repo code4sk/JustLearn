@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 launchTimerActivity()
                 true
             }
+            R.id.menuWords -> {
+                launchWordsActivity()
+                true
+            }
             else -> {
                 false
             }
@@ -54,6 +58,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun launchTimerActivity(){
         startActivity(Intent(this, TimerActivity::class.java))
+    }
+    private fun launchWordsActivity(){
+        startActivity(Intent(this, WordsActivity::class.java))
     }
 
 }

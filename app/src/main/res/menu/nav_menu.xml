@@ -3,4 +3,7 @@
     <item android:title="@string/timer"
           android:icon="@drawable/ic_timer_black_24dp"
           android:id="@+id/menuTimer"/>
+    <item
+            android:title="@string/words"
+            android:id="@+id/menuWords" />
 </menu>
