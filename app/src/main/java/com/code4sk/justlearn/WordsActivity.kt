@@ -97,7 +97,7 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
                 recList.add(name)
             }
         }
-        Log.d("checkShubham", recList[0])
+//        Log.d("checkShubham", recList[0])
         adapter.loadNewData(recList)
         val recyclerView = findViewById<RecyclerView>(R.id.wordRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)

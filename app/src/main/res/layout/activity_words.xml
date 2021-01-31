@@ -19,18 +19,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/constraintLayout2">
 
-        <ImageView
-                android:layout_width="55dp"
-                android:layout_height="0dp"
-                app:srcCompat="@drawable/ic_menu_black_24dp"
-                android:id="@+id/nav_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="8dp"
-                android:onClick="openDrawer" />
+<!--        <ImageView-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                app:srcCompat="@drawable/ic_menu_black_24dp"-->
+<!--                android:id="@+id/nav_btn"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:onClick="openDrawer" />-->
 
         <TextView
                 android:text="My Words"

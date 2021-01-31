@@ -3,16 +3,22 @@ package com.code4sk.justlearn
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckedTextView
 import android.widget.TextView
+import androidx.recyclerview.selection.ItemDetailsLookup
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import java.io.File
 
-class RecyclerViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    val text = view.findViewById<TextView>(R.id.recordingText)
-}
 
-class RecordingsAdapter(var recList: ArrayList<File>): RecyclerView.Adapter<RecyclerViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
+
+class RecordingsAdapter(var recList: ArrayList<RecItem>): RecyclerView.Adapter<RecordingsAdapter.RecyclerViewHolder>() {
+    inner class RecyclerViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        val text = view.findViewById<CheckedTextView>(R.id.recordingText) as CheckedTextView
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordingsAdapter.RecyclerViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.single_recording, parent, false)
         return RecyclerViewHolder(view)
     }
@@ -21,16 +27,18 @@ class RecordingsAdapter(var recList: ArrayList<File>): RecyclerView.Adapter<Recy
         return if(recList.isNotEmpty()) recList.size else 0
     }
 
-    fun loadNewData(newList: ArrayList<File>){
+    fun loadNewData(newList: ArrayList<RecItem>){
         recList = newList
         notifyDataSetChanged()
     }
 
-    fun getRecording(position: Int): File{
+    fun getRecording(position: Int): RecItem{
         return recList[position]
     }
 
+    fun getPosition(name: String) = recList.indexOfFirst { it.file.name == name }
+
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.text.text = recList[position].name
+        holder.text.text = recList[position].file.name
     }
 }

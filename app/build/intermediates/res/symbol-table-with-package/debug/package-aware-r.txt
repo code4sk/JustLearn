@@ -1535,12 +1535,14 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable delete_white
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_baseline_add_box_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_black_24dp
@@ -1582,7 +1584,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable our_checkbox
 drawable rounded_search
+drawable selection_band_overlay
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1651,9 +1655,11 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_text
+id action_view_delete
 id actions
 id activity_chooser_view_content
 id add
+id addWord
 id alertTitle
 id aligned
 id all
@@ -1696,6 +1702,7 @@ id collapseActionView
 id confirm_button
 id constraintLayout
 id constraintLayout2
+id constraintLayout3
 id container
 id content
 id contentPanel
@@ -1709,6 +1716,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteRec
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -1823,6 +1831,7 @@ id mtrl_picker_title_text
 id multiply
 id nav_btn
 id navigation
+id navigationTimer
 id navigation_header_container
 id never
 id noScroll
@@ -1950,6 +1959,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -2110,10 +2120,13 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout toolbar
+menu action_mode_menu
 menu nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+string CHANNEL_ID
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2144,6 +2157,8 @@ string abc_toolbar_collapse_description
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string channel_description
+string channel_name
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -2201,6 +2216,7 @@ string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
 string timer
+string view_list
 string words
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
