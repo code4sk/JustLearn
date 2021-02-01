@@ -58,12 +58,12 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         dialog.findViewById<Button>(R.id.saveRec).setOnClickListener {
 
             Toast.makeText(this, dialog.findViewById<EditText>(R.id.file_name).text.toString(), Toast.LENGTH_SHORT).show()
-            val name = "Recordings/${dialog.findViewById<EditText>(R.id.file_name).text.toString()}.mp3"
+            val name = "Recordings/${dialog.findViewById<EditText>(R.id.file_name).text.toString()}.m4a"
             Log.d("checkShubham", "lets see${name}")
 
 
 
-            File(path, "Recordings/just_learn.mp3").renameTo(File(path, name))
+            File(path, "Recordings/just_learn.m4a").renameTo(File(path, name))
             finish()
             startActivity(intent)
             dialog.dismiss()
@@ -222,6 +222,11 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
     }
 
     fun onDeleteRec(view: View) {
+        selectedRecItems.forEach {
+            it.file.delete()
+
+        }
+        selectedRecItems.clear()
         finish()
         startActivity(intent)
     }
@@ -232,11 +237,10 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-//            recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
-            recorder.setAudioEncodingBitRate(16);
+            recorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+            recorder.setAudioEncodingBitRate(16*44100);
             recorder.setAudioSamplingRate(44100);
-            recorder.setOutputFile(File(path, "Recordings/just_learn.mp3").absolutePath)
+            recorder.setOutputFile(File(path, "Recordings/just_learn.m4a").absolutePath)
             recorder.prepare()
             isRecording = true
             newView.setImageResource(R.drawable.ic_baseline_stop_24)
