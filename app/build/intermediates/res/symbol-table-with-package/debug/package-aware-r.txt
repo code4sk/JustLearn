@@ -1543,6 +1543,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_add_box_24
+drawable ic_baseline_stop_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_black_24dp
@@ -1562,6 +1563,7 @@ drawable material_ic_keyboard_arrow_left_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable mic_white
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1681,6 +1683,7 @@ id bottom
 id bounce
 id buttonPanel
 id cache_measures
+id cancelRec
 id cancel_button
 id center
 id center_horizontal
@@ -1748,7 +1751,9 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab_record
 id fade
+id file_name
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1779,6 +1784,7 @@ id image
 id imageView
 id imageView2
 id imageView3
+id imageView4
 id info
 id invisible
 id italic
@@ -1870,6 +1876,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id saveRec
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2065,6 +2072,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_rec
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

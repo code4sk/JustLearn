@@ -1,6 +1,8 @@
 package com.code4sk.justlearn
 
+import android.app.Dialog
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -15,6 +17,7 @@ class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, listen
     interface OnRecyclerTouchListener{
         fun onSingleTap(view: View, position: Int)
         fun onLongTap(view: View, position: Int)
+
     }
 
     private val gestureDetectorObject = object: GestureDetector.SimpleOnGestureListener(){

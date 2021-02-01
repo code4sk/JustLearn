@@ -1,45 +1,49 @@
 package com.code4sk.justlearn
 
 
+import RecordDialogFragment
 import android.Manifest
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.MediaRecorder
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.os.Parcelable
 import android.util.Log
-import androidx.appcompat.view.ActionMode
-import android.view.View
 import android.view.MenuItem
-import android.view.MenuInflater
-import android.widget.LinearLayout
-import android.widget.Toast
-import android.view.Menu
-import android.widget.CheckedTextView
-import android.widget.ImageView
+import android.view.View
+import android.widget.*
+
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.selection.SelectionPredicates
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.selection.SelectionTracker
-import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 
-class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouchListener, NavigationView.OnNavigationItemSelectedListener {
+class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouchListener, NavigationView.OnNavigationItemSelectedListener{
 
+    private lateinit var dialog: Dialog
+//    private val randomFileName = "lkjdsfdsafl12"
     private val adapter = RecordingsAdapter(ArrayList())
     private var selectedRecItems = ArrayList<RecItem>()
-    private var actionMode: ActionMode? = null
-    private var tracker: SelectionTracker<RecItem>? = null
     private var selectMode = false
+    private val recorder = MediaRecorder()
+    private var isRecording = false
+    private val path = Environment.getExternalStorageDirectory().toString()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
@@ -47,16 +51,43 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         val nv = findViewById<NavigationView>(R.id.navigationTimer)
         nv.setNavigationItemSelectedListener(this)
         findViewById<ImageView>(R.id.deleteRec).visibility = View.GONE
-        val recList: ArrayList <RecItem> = ArrayList()
-        val path = Environment.getExternalStorageDirectory().toString()
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        val recList: ArrayList<RecItem> = ArrayList()
+        dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_rec)
+        dialog.setCancelable(false)
+        dialog.findViewById<Button>(R.id.saveRec).setOnClickListener {
+
+            Toast.makeText(this, dialog.findViewById<EditText>(R.id.file_name).text.toString(), Toast.LENGTH_SHORT).show()
+            val name = "Recordings/${dialog.findViewById<EditText>(R.id.file_name).text.toString()}.mp3"
+            Log.d("checkShubham", "lets see${name}")
+
+
+
+            File(path, "Recordings/just_learn.mp3").renameTo(File(path, name))
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        dialog.findViewById<Button>(R.id.cancelRec).setOnClickListener {
+
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED) {
             val permissions = arrayOf(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-            ActivityCompat.requestPermissions(this, permissions,0)
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            ActivityCompat.requestPermissions(this, permissions, 0)
             Log.d(tag, "perm wrong")
         }
         else{
@@ -80,6 +111,8 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
 
 
+
+
     override fun onSingleTap(view: View, position: Int) {
         Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
         val newView = view.findViewById<CheckedTextView>(R.id.recordingText)
@@ -98,8 +131,8 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
             adapter.notifyDataSetChanged()
 
         } else {
-            //        val uri: Uri = Uri.parse(adapter.getRecording(position).file.absolutePath)
-            //        playMedia(uri)
+                    val uri: Uri = Uri.parse(adapter.getRecording(position).file.absolutePath)
+                    playMedia(uri)
         }
 
     }
@@ -122,6 +155,12 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
     }
 
+    fun showRecordDialog() {
+        // Create an instance of the dialog fragment and show it
+        val dialog = RecordDialogFragment()
+        dialog.show(supportFragmentManager, "NoticeDialogFragment")
+    }
+
     private fun playMedia(file: Uri) {
         Log.d(tag, file.toString())
         val intent = Intent(Intent.ACTION_VIEW).apply {
@@ -131,7 +170,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
             startActivity(intent)
         }
         else{
-            Log.d(tag,"activity not found")
+            Log.d(tag, "activity not found")
         }
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -186,6 +225,55 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         finish()
         startActivity(intent)
     }
+
+    fun startRecording(view: View) {
+        val newView = view.findViewById<FloatingActionButton>(R.id.fab_record)
+        if(!isRecording){
+
+            recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+//            recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
+            recorder.setAudioEncodingBitRate(16);
+            recorder.setAudioSamplingRate(44100);
+            recorder.setOutputFile(File(path, "Recordings/just_learn.mp3").absolutePath)
+            recorder.prepare()
+            isRecording = true
+            newView.setImageResource(R.drawable.ic_baseline_stop_24)
+            recorder.start()
+
+        } else {
+//            showRecordDialog()
+
+            isRecording = false
+            recorder.stop()
+            recorder.reset()
+//            val recordDialogFragment = RecordDialogFragment()
+//            recordDialogFragment.show(supportFragmentManager, "what is this now!!")
+            dialog.show()
+
+        }
+
+    }
+
+//    override fun onDialogPositiveClick(dialog: DialogFragment) {
+////        Log.d("checkShubham", dialog.findViewById)
+//        val name = "Recordings/${findViewById<EditText>(R.id.file_name).text}.mp3"
+//        recorder.setOutputFile(File(path, name).absolutePath)
+//        recorder.stop()
+//        recorder.reset()
+//        dialog.dismiss()
+//        finish()
+//        startActivity(intent)
+//    }
+//
+//    override fun onDialogNegativeClick(dialog: DialogFragment) {
+//        recorder.stop()
+//        recorder.reset()
+//        dialog.dismiss()
+//        finish()
+//        startActivity(intent)
+//    }
 }
 
 
