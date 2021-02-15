@@ -1,20 +1,37 @@
 package com.code4sk.justlearn
 
-import android.content.ContentValues
+import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.net.Uri
+import android.media.MediaRecorder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.BaseColumns
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
+import android.widget.CheckedTextView
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
-class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouchListener {
+class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouchListener, NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var dialog: Dialog
+    //    private val randomFileName = "lkjdsfdsafl12"
+    private var selectedWordItems = ArrayList<String>()
+    private var selectMode = false
+
+    private val path = Environment.getExternalStorageDirectory().toString()
+    val adapter = WordsAdapter(ArrayList())
 
     object FeedReaderContract {
         // Table contents are grouped together in an anonymous object.
@@ -56,7 +73,9 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_words)
         supportActionBar?.hide()
-        val adapter = WordsAdapter(ArrayList())
+        findViewById<ImageView>(R.id.deleteWord).visibility = View.GONE
+        val nv = findViewById<NavigationView>(R.id.navigationWords)
+        nv.setNavigationItemSelectedListener(this)
         val dbHelper = FeedReaderDbHelper(this)
         val recList = ArrayList<String>()
         // Gets the data repository in write mode
@@ -106,9 +125,101 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
     }
     override fun onSingleTap(view: View, position: Int) {
         Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
+        val newView = view.findViewById<CheckedTextView>(R.id.wordText)
+
+        if(selectMode){
+            if(adapter.getWord(position) in selectedWordItems){
+                selectedWordItems.remove(adapter.getWord(position))
+                newView.isChecked = false
+                newView.checkMarkDrawable = null
+            } else {
+                selectedWordItems.add(adapter.getWord(position))
+
+                newView.isChecked = true
+                newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+            }
+            adapter.notifyDataSetChanged()
+
+        } else {
+
+        }
+
     }
 
+
+
     override fun onLongTap(view: View, position: Int) {
-        Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
+        val newView = view.findViewById<CheckedTextView>(R.id.wordText)
+        if(!selectMode){
+            selectMode = true
+            findViewById<ImageView>(R.id.deleteWord).visibility = View.VISIBLE
+            selectedWordItems.add(adapter.getWord(position))
+            newView.isChecked = true
+            newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+            adapter.notifyDataSetChanged()
+            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
+        } else {
+            onSingleTap(view, position)
+        }
+
+    }
+
+    override fun onBackPressed() {
+        Log.d(tag, "${drawerLayout.isDrawerOpen(GravityCompat.START)}")
+        if(this.drawerLayout.isDrawerOpen(GravityCompat.START)){
+            this.drawerLayout.closeDrawer(GravityCompat.START)
+        } else if(selectMode){
+            selectMode = false
+            selectedWordItems.clear()
+            finish()
+            startActivity(intent)
+        }
+        else  {
+            super.onBackPressed()
+        }
+    }
+
+    fun onDeleteWord(view: View) {
+        val dbHelper = FeedReaderDbHelper(this)
+        val db = dbHelper.writableDatabase
+        val selection = "${FeedReaderContract.FeedEntry.COLUMN_NAME} LIKE ?"
+// Specify arguments in placeholder order.
+
+// Issue SQL statement.
+
+        selectedWordItems.forEach {
+            val selectionArgs = arrayOf(it)
+            val deletedRows = db.delete(FeedReaderContract.FeedEntry.TABLE_NAME, selection, selectionArgs)
+        }
+
+        selectedWordItems.clear()
+        finish()
+        startActivity(intent)
+    }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//        Log.d(tag, "${item.itemId} ----- ${R.id.menuTimer} ")
+        return when(item.itemId){
+            R.id.menuTimer -> {
+                launchTimerActivity()
+                true
+            }
+            R.id.menuWords -> {
+                launchWordsActivity()
+                true
+            }
+            else -> {
+                false
+            }
+        }
+    }
+    fun openDrawer(view: View) {
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        drawerLayout.openDrawer(GravityCompat.START)
+    }
+    private fun launchTimerActivity(){
+        startActivity(Intent(this, TimerActivity::class.java))
+    }
+    private fun launchWordsActivity(){
+        startActivity(Intent(this, WordsActivity::class.java))
     }
 }

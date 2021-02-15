@@ -21,12 +21,12 @@
             android:id="@+id/addWord"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@+string/search_hint"
             android:inputType="text"
             android:imeOptions="actionSend"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:hint="@string/search_hint" />
 </androidx.constraintlayout.widget.ConstraintLayout>

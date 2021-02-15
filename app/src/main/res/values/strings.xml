@@ -6,4 +6,5 @@
     <string name="channel_description">channel description</string>
     <string name="CHANNEL_ID">1</string>
     <string name="view_list">View list</string>
+    <string name="search_hint">Add Word</string>
 </resources>

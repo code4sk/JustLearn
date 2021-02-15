@@ -155,11 +155,11 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
     }
 
-    fun showRecordDialog() {
-        // Create an instance of the dialog fragment and show it
-        val dialog = RecordDialogFragment()
-        dialog.show(supportFragmentManager, "NoticeDialogFragment")
-    }
+//    fun showRecordDialog() {
+//        // Create an instance of the dialog fragment and show it
+//        val dialog = RecordDialogFragment()
+//        dialog.show(supportFragmentManager, "NoticeDialogFragment")
+//    }
 
     private fun playMedia(file: Uri) {
         Log.d(tag, file.toString())

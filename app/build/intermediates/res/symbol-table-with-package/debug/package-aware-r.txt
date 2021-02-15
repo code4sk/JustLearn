@@ -1720,6 +1720,7 @@ id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
 id deleteRec
+id deleteWord
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -1838,6 +1839,7 @@ id multiply
 id nav_btn
 id navigation
 id navigationTimer
+id navigationWords
 id navigation_header_container
 id never
 id noScroll
@@ -2221,6 +2223,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string search_hint
 string search_menu_title
 string status_bar_notification_info_overflow
 string timer
