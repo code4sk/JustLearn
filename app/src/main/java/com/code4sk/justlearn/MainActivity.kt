@@ -107,17 +107,39 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     private fun setAlarm(){
         val manager:AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, 15)
-        calendar.set(Calendar.MINUTE, 20)
+//        val calendar = Calendar.getInstance()
+//        calendar.set(Calendar.HOUR_OF_DAY, 1)
+//        calendar.set(Calendar.MINUTE, 23)
 
         val myIntent = Intent(this, NotificationBroadcastReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0)
         Log.d("checkShubham", AlarmManager.INTERVAL_FIFTEEN_MINUTES.toString())
-        if(false)
-            manager.set(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime()+3000,pendingIntent)
-        else
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_FIFTEEN_MINUTES,pendingIntent)
+//        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, 1000, pendingIntent)
+//        manager.setInexactRepeating(
+//            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//            SystemClock.elapsedRealtime() + 1000,
+//            AlarmManager.INTERVAL_HALF_HOUR,
+//            pendingIntent
+//        )
+        val calendar: Calendar = Calendar.getInstance().apply {
+            timeInMillis = System.currentTimeMillis()
+            set(Calendar.HOUR_OF_DAY, 1)
+            set(Calendar.MINUTE, 30)
+        }
 
+// setRepeating() lets you specify a precise custom interval--in this case,
+// 20 minutes.
+//        manager.setRepeating(
+//            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//            calendar.timeInMillis,
+//            1000 ,
+//            pendingIntent
+//        )
+        manager.setInexactRepeating(
+            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+            SystemClock.elapsedRealtime() + 1000,
+            1000,
+            pendingIntent
+        )
     }
 }

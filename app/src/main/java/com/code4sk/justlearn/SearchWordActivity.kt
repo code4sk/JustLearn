@@ -42,7 +42,9 @@ class SearchWordActivity : AppCompatActivity() {
     fun addWord(word: String){
         val dbHelper = WordsActivity.FeedReaderDbHelper(this)
         val db = dbHelper.writableDatabase
-
+        val selectionArgs = arrayOf(word)
+        val selection = "${WordsActivity.FeedReaderContract.FeedEntry.COLUMN_NAME} LIKE ?"
+        val deletedRows = db.delete(WordsActivity.FeedReaderContract.FeedEntry.TABLE_NAME, selection, selectionArgs)
         val values = ContentValues().apply {
             put(WordsActivity.FeedReaderContract.FeedEntry.COLUMN_NAME, word)
         }

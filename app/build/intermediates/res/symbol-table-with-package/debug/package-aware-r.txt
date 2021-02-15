@@ -1544,6 +1544,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_add_24
 drawable ic_baseline_add_box_24
+drawable ic_baseline_local_library_24
 drawable ic_baseline_stop_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground

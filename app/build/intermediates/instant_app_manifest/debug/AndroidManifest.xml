@@ -24,6 +24,24 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+
+        <!-- <receiver android:name=".BootReceiver" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+
+
+        <!-- <category android:name="android.intent.category.HOME" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <receiver android:name="com.code4sk.justlearn.NotificationBroadcastReceiver" />
+
+        <service
+            android:name="com.code4sk.justlearn.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity android:name="com.code4sk.justlearn.WordsActivity" />
         <activity android:name="com.code4sk.justlearn.TimerActivity" />
         <activity

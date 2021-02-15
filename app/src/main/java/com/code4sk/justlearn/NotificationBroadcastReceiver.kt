@@ -11,11 +11,15 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import android.content.res.Resources.getSystem
+import android.util.Log
 import androidx.core.content.ContextCompat.getSystemService
 
 class NotificationBroadcastReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        val builder = NotificationCompat.Builder(context!!, getSystem().getString(R.string.CHANNEL_ID))
+        val cid = "1"
+        Log.d("checkShubham", "now")
+        Log.d("checkShubham", "${cid} ok ")
+        val builder = NotificationCompat.Builder(context!!, cid)
             .setSmallIcon(R.drawable.rounded_search)
             .setContentTitle("finish")
             .setContentText("done")
@@ -30,6 +34,7 @@ class NotificationBroadcastReceiver: BroadcastReceiver() {
             // notificationId is a unique int for each notification that you must define
             notify(1, builder.build())
         }
+
     }
 //    private fun createNotificationChannel() {
 //        // Create the NotificationChannel, but only on API 26+ because
