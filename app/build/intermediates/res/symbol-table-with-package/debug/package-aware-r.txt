@@ -1542,6 +1542,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_baseline_add_24
 drawable ic_baseline_add_box_24
 drawable ic_baseline_stop_24
 drawable ic_launcher_background
@@ -1752,6 +1753,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab_addWord
 id fab_record
 id fade
 id file_name

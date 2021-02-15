@@ -212,6 +212,11 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
             }
         }
     }
+    fun openAddWord(view: View){
+        intent = Intent(this, SearchWordActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
     fun openDrawer(view: View) {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         drawerLayout.openDrawer(GravityCompat.START)
