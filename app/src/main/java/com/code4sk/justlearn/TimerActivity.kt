@@ -11,12 +11,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
@@ -43,6 +45,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
     private var selectMode = false
     private val recorder = MediaRecorder()
     private var isRecording = false
+    private var isPause = false
     private val path = Environment.getExternalStorageDirectory().toString()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +54,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         val nv = findViewById<NavigationView>(R.id.navigationTimer)
         nv.setNavigationItemSelectedListener(this)
         findViewById<ImageView>(R.id.deleteRec).visibility = View.GONE
+        findViewById<FloatingActionButton>(R.id.fab_pause).visibility = View.GONE
         val recList: ArrayList<RecItem> = ArrayList()
         dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_rec)
@@ -233,11 +237,13 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
     fun startRecording(view: View) {
         val newView = view.findViewById<FloatingActionButton>(R.id.fab_record)
+        findViewById<FloatingActionButton>(R.id.fab_pause).visibility = View.VISIBLE
+        findViewById<FloatingActionButton>(R.id.fab_pause).setImageResource(R.drawable.ic_baseline_pause_24)
         if(!isRecording){
 
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-            recorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            recorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB)
             recorder.setAudioEncodingBitRate(16*44100);
             recorder.setAudioSamplingRate(44100);
             recorder.setOutputFile(File(path, "Recordings/just_learn.m4a").absolutePath)
@@ -258,6 +264,27 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
         }
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun pauseRecording(view: View){
+        val newView = view.findViewById<FloatingActionButton>(R.id.fab_pause)
+        if(!isRecording){
+            return
+        }
+
+        if(isPause){
+//            showRecordDialog()
+
+            isPause = false
+            newView.setImageResource(R.drawable.ic_baseline_pause_24)
+            recorder.resume()
+        } else {
+            isPause = true
+
+            newView.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+            recorder.pause()
+        }
     }
 
 //    override fun onDialogPositiveClick(dialog: DialogFragment) {

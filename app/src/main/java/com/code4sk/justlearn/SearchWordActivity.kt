@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
 import android.provider.BaseColumns
 import android.util.Log
+import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
@@ -24,21 +26,29 @@ class SearchWordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         getSupportActionBar()?.hide()
         setContentView(R.layout.activity_search_word)
-        searchView = findViewById(R.id.searchView)
-        searchView?.isIconified = false
-        searchView?.isIconifiedByDefault = false
+//        searchView = findViewById(R.id.searchView)
+//        searchView?.isIconified = false
+//        searchView?.isIconifiedByDefault = false
+
         findViewById<EditText>(R.id.addWord).setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_SEND -> {
                     val text = findViewById<EditText>(R.id.addWord).text
                     addWord(text.toString())
-                    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false
             }
         }
+
     }
+
+    fun addWordBtn(view: View){
+        val text = findViewById<EditText>(R.id.addWord).text
+        addWord(text.toString())
+    }
+
     fun addWord(word: String){
         val dbHelper = WordsActivity.FeedReaderDbHelper(this)
         val db = dbHelper.writableDatabase

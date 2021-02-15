@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d2f9500077bc654d7c543acc4b87e4f\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\ba03b7c7aa63fc56663fc3338a26b188\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\fea151b6270c16ed1df729f308cb7b49\AndroidManifest.xml:17:1-24:12
@@ -34,20 +34,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f91a8ea73637dfad566f98735d23a59b\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\2ec4a07061aa1d35faf45418fa0b4186\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\ab9011a85e9fa7f29ccc11e96af1700b\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
 	package
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:3:9-40
 		INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
 		INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-51:12
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:1-54:12
 		INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:2:11-69
@@ -68,7 +68,7 @@ ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:8:22-77
 application
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:10:5-49:19
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:10:5-52:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d2f9500077bc654d7c543acc4b87e4f\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d2f9500077bc654d7c543acc4b87e4f\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\ba03b7c7aa63fc56663fc3338a26b188\AndroidManifest.xml:9:5-20
@@ -112,31 +112,33 @@ ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:35:19-48
 activity#com.code4sk.justlearn.SearchWordActivity
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:36:9-38:65
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:36:9-41:20
 	android:screenOrientation
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:38:17-53
+	android:windowSoftInputMode
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:39:17-59
 	android:name
 		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:37:17-51
 activity#com.code4sk.justlearn.MainActivity
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:39:9-48:20
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:42:9-51:20
 	android:screenOrientation
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:41:17-53
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:44:17-53
 	android:name
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:40:17-45
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:43:17-45
 intent-filter#action:name:android.intent.action.MAIN+action:name:android.intent.action.VIEW+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:42:13-47:29
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:45:13-50:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:43:17-69
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:46:17-69
 	android:name
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:43:25-66
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:46:25-66
 action#android.intent.action.VIEW
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:44:17-69
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:47:17-69
 	android:name
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:44:25-66
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:47:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:46:17-77
+ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:49:17-77
 	android:name
-		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:46:27-74
+		ADDED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml:49:27-74
 uses-sdk
 INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\user\AndroidStudioProjects\JustLearn\app\src\main\AndroidManifest.xml

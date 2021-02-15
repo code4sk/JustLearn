@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".TimerActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="395dp"
             android:layout_height="64dp"
@@ -83,6 +84,20 @@
             android:onClick="startRecording"
 
             android:backgroundTint="@color/emerald"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_baseline_pause_24"
+            android:id="@+id/fab_pause"
+            android:onClick="pauseRecording"
+
+            android:backgroundTint="@color/emerald"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="32dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

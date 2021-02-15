@@ -76,31 +76,16 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         findViewById<ImageView>(R.id.deleteWord).visibility = View.GONE
         val nv = findViewById<NavigationView>(R.id.navigationWords)
         nv.setNavigationItemSelectedListener(this)
-        val dbHelper = FeedReaderDbHelper(this)
+
         val recList = ArrayList<String>()
-        // Gets the data repository in write mode
-//        val db = dbHelper.writableDatabase
-//
-//        val values = ContentValues().apply {
-//            put(FeedReaderContract.FeedEntry.COLUMN_NAME, "captivate")
-//        }
 
-
-//        val newRowId = db?.insert(FeedReaderContract.FeedEntry.TABLE_NAME, null, values)
-//        Log.d("checkShubham", newRowId.toString())
+        val dbHelper = FeedReaderDbHelper(this)
         val db = dbHelper.readableDatabase
 
-// Define a projection that specifies which columns from the database
-// you will actually use after this query.
         val projection = arrayOf(BaseColumns._ID, FeedReaderContract.FeedEntry.COLUMN_NAME)
 
-// Filter results WHERE "title" = 'My Title'
-        val selection = ""
-        val selectionArgs = arrayOf("My Title")
 
-// How you want the results sorted in the resulting Cursor
         val sortOrder = "${BaseColumns._ID} DESC"
-
         val cursor = db.query(
             FeedReaderContract.FeedEntry.TABLE_NAME,   // The table to query
             projection,             // The array of columns to return (pass null to get all)

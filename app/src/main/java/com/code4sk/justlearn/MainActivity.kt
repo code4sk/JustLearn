@@ -34,15 +34,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .setContentText("text")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         createNotificationChannel()
-        val intent = Intent(this, SearchWordActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-        builder.setContentIntent(pendingIntent)
-        with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(1, builder.build())
-        }
+//        val intent = Intent(this, SearchWordActivity::class.java).apply {
+//            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//        }
+//        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+//        builder.setContentIntent(pendingIntent)
+//        with(NotificationManagerCompat.from(this)) {
+//            // notificationId is a unique int for each notification that you must define
+//            notify(1, builder.build())
+//        }
         setAlarm()
     }
 

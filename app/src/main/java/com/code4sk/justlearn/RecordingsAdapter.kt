@@ -39,6 +39,6 @@ class RecordingsAdapter(var recList: ArrayList<RecItem>): RecyclerView.Adapter<R
     fun getPosition(name: String) = recList.indexOfFirst { it.file.name == name }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.text.text = recList[position].file.name
+        holder.text.text = recList[position].file.nameWithoutExtension
     }
 }
