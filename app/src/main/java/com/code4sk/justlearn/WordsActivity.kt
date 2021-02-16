@@ -6,6 +6,7 @@ import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.media.MediaRecorder
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -13,6 +14,7 @@ import android.provider.BaseColumns
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.CheckedTextView
 import android.widget.ImageView
 import android.widget.Toast
@@ -73,6 +75,13 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_words)
         supportActionBar?.hide()
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            val w = window
+//            w.setFlags(
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//            )
+//        }
         findViewById<ImageView>(R.id.deleteWord).visibility = View.GONE
         val nv = findViewById<NavigationView>(R.id.navigationWords)
         nv.setNavigationItemSelectedListener(this)
@@ -109,7 +118,7 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         recyclerView.adapter = adapter
     }
     override fun onSingleTap(view: View, position: Int) {
-        Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
         val newView = view.findViewById<CheckedTextView>(R.id.wordText)
 
         if(selectMode){
@@ -142,7 +151,7 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
             newView.isChecked = true
             newView.setCheckMarkDrawable(R.drawable.our_checkbox)
             adapter.notifyDataSetChanged()
-            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
         } else {
             onSingleTap(view, position)
         }

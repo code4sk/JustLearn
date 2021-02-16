@@ -10,7 +10,7 @@
             android:src="@drawable/icon_just_learn"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:scaleType="center"
+            android:scaleType="fitCenter"
             android:background="#FFFFBB33"
             android:contentDescription="@string/app_name"
             tools:layout_editor_absoluteX="0dp"

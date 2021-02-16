@@ -5,10 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.os.Build
 import android.os.Bundle
 import android.provider.BaseColumns
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
@@ -29,7 +31,13 @@ class SearchWordActivity : AppCompatActivity() {
 //        searchView = findViewById(R.id.searchView)
 //        searchView?.isIconified = false
 //        searchView?.isIconifiedByDefault = false
-
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            val w = window
+//            w.setFlags(
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//            )
+//        }
         findViewById<EditText>(R.id.addWord).setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_SEND -> {

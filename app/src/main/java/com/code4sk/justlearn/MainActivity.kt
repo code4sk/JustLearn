@@ -10,15 +10,17 @@ import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
-import android.view.*
+import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+
 
 const val tag = "checkShubham"
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            val w = window
+//            w.setFlags(
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//            )
+//        }
         val nv = findViewById<NavigationView>(R.id.navigation)
         nv.setNavigationItemSelectedListener(this)
         val builder = NotificationCompat.Builder(this, getString(R.string.CHANNEL_ID))

@@ -17,6 +17,7 @@ import android.os.Environment
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 
@@ -51,6 +52,13 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
         setSupportActionBar(findViewById(R.id.toolbar))
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            val w = window
+//            w.setFlags(
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//            )
+//        }
         val nv = findViewById<NavigationView>(R.id.navigationTimer)
         nv.setNavigationItemSelectedListener(this)
         findViewById<ImageView>(R.id.deleteRec).visibility = View.GONE
@@ -118,7 +126,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
 
     override fun onSingleTap(view: View, position: Int) {
-        Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
         val newView = view.findViewById<CheckedTextView>(R.id.recordingText)
 
         if(selectMode){
@@ -152,7 +160,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
             newView.isChecked = true
             newView.setCheckMarkDrawable(R.drawable.our_checkbox)
             adapter.notifyDataSetChanged()
-            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
         } else {
             onSingleTap(view, position)
         }

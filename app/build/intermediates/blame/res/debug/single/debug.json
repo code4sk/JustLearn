@@ -2044,6 +2044,10 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_record_voice_over_24.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\drawable\\ic_baseline_record_voice_over_24.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_bottom_nav_colored_item_tint.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\mtrl_bottom_nav_colored_item_tint.xml"
     },

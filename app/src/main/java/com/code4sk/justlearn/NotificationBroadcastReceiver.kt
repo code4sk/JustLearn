@@ -13,6 +13,7 @@ import androidx.core.app.NotificationManagerCompat
 import android.content.res.Resources.getSystem
 import android.provider.BaseColumns
 import android.util.Log
+
 import androidx.core.content.ContextCompat.getSystemService
 
 class NotificationBroadcastReceiver: BroadcastReceiver() {
@@ -57,8 +58,12 @@ class NotificationBroadcastReceiver: BroadcastReceiver() {
 //        val intent = Intent(context, SearchWordActivity::class.java).apply {
 //            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //        }
+            val intent = Intent(context, WordsActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
             val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
             builder.setContentIntent(pendingIntent)
+            builder.setAutoCancel(true)
             with(NotificationManagerCompat.from(context)) {
                 // notificationId is a unique int for each notification that you must define
                 notify(1, builder.build())
