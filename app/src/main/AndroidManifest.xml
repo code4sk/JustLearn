@@ -36,7 +36,8 @@
         <activity android:name=".WordsActivity">
 
         </activity>
-        <activity android:name=".TimerActivity">
+        <activity android:name=".TimerActivity"
+                android:windowSoftInputMode="stateVisible">
 
         </activity>
         <activity

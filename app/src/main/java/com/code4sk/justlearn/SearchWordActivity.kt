@@ -1,18 +1,12 @@
 package com.code4sk.justlearn
 
 import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
-import android.os.Build
 import android.os.Bundle
-import android.provider.BaseColumns
 import android.util.Log
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
@@ -28,6 +22,7 @@ class SearchWordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         getSupportActionBar()?.hide()
         setContentView(R.layout.activity_search_word)
+
 //        searchView = findViewById(R.id.searchView)
 //        searchView?.isIconified = false
 //        searchView?.isIconifiedByDefault = false
@@ -38,17 +33,22 @@ class SearchWordActivity : AppCompatActivity() {
 //                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 //            )
 //        }
+        val addWordBox = findViewById<EditText>(R.id.addWord)
         findViewById<EditText>(R.id.addWord).setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_SEND -> {
-                    val text = findViewById<EditText>(R.id.addWord).text
+                    val text = addWordBox.text
                     addWord(text.toString())
 //                    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 else -> false
             }
         }
+        addWordBox.requestFocus()
+//        val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+//        imm.showSoftInput(addWordBox, InputMethodManager.SHOW_IMPLICIT)
 
     }
 
@@ -62,7 +62,11 @@ class SearchWordActivity : AppCompatActivity() {
         val db = dbHelper.writableDatabase
         val selectionArgs = arrayOf(word)
         val selection = "${WordsActivity.FeedReaderContract.FeedEntry.COLUMN_NAME} LIKE ?"
-        val deletedRows = db.delete(WordsActivity.FeedReaderContract.FeedEntry.TABLE_NAME, selection, selectionArgs)
+        val deletedRows = db.delete(
+            WordsActivity.FeedReaderContract.FeedEntry.TABLE_NAME,
+            selection,
+            selectionArgs
+        )
         val values = ContentValues().apply {
             put(WordsActivity.FeedReaderContract.FeedEntry.COLUMN_NAME, word)
         }
@@ -74,6 +78,7 @@ class SearchWordActivity : AppCompatActivity() {
             values
         )
         Log.d("checkShubham", newRowId.toString())
+        Toast.makeText(this, "Good word to learn, we will keep you notified!", Toast.LENGTH_LONG).show()
         intent = Intent(this, WordsActivity::class.java)
         startActivity(intent)
         finish()

@@ -18,6 +18,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 
@@ -67,21 +68,25 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_rec)
         dialog.setCancelable(false)
+        val dialogFileName = dialog.findViewById<EditText>(R.id.file_name)
+        dialogFileName.requestFocus()
+        val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(dialogFileName, InputMethodManager.SHOW_IMPLICIT)
         dialog.findViewById<Button>(R.id.saveRec).setOnClickListener {
 
             Toast.makeText(this, dialog.findViewById<EditText>(R.id.file_name).text.toString(), Toast.LENGTH_SHORT).show()
-            val name = "Recordings/${dialog.findViewById<EditText>(R.id.file_name).text.toString()}.m4a"
+            val name = "Recordings/${dialogFileName.text.toString()}.m4a"
             Log.d("checkShubham", "lets see${name}")
 
 
-
+            Toast.makeText(this, "Recording saved.", Toast.LENGTH_SHORT).show()
             File(path, "Recordings/just_learn.m4a").renameTo(File(path, name))
             finish()
             startActivity(intent)
             dialog.dismiss()
         }
         dialog.findViewById<Button>(R.id.cancelRec).setOnClickListener {
-
+            Toast.makeText(this, "Recording saved.", Toast.LENGTH_SHORT).show()
             finish()
             startActivity(intent)
             dialog.dismiss()
@@ -174,6 +179,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 //    }
 
     private fun playMedia(file: Uri) {
+        Toast.makeText(this, "Playing recording.", Toast.LENGTH_SHORT).show()
         Log.d(tag, file.toString())
         val intent = Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(file, "audio/*")
@@ -248,7 +254,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         findViewById<FloatingActionButton>(R.id.fab_pause).visibility = View.VISIBLE
         findViewById<FloatingActionButton>(R.id.fab_pause).setImageResource(R.drawable.ic_baseline_pause_24)
         if(!isRecording){
-
+            Toast.makeText(this, "Recording started.", Toast.LENGTH_SHORT).show()
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             recorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB)
@@ -262,7 +268,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
         } else {
 //            showRecordDialog()
-
+            Toast.makeText(this, "Recording finished.", Toast.LENGTH_SHORT).show()
             isRecording = false
             recorder.stop()
             recorder.reset()
@@ -283,13 +289,13 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
         if(isPause){
 //            showRecordDialog()
-
+            Toast.makeText(this, "Recording resumed.", Toast.LENGTH_SHORT).show()
             isPause = false
             newView.setImageResource(R.drawable.ic_baseline_pause_24)
             recorder.resume()
         } else {
             isPause = true
-
+            Toast.makeText(this, "Recording Paused.", Toast.LENGTH_SHORT).show()
             newView.setImageResource(R.drawable.ic_baseline_play_arrow_24)
             recorder.pause()
         }

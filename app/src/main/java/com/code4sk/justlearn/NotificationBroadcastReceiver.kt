@@ -26,7 +26,7 @@ class NotificationBroadcastReceiver: BroadcastReceiver() {
 
         val projection = arrayOf(BaseColumns._ID, WordsActivity.FeedReaderContract.FeedEntry.COLUMN_NAME)
 
-        var temp:ArrayList<String> = ArrayList()
+        val temp:ArrayList<String> = ArrayList()
         val sortOrder = "${BaseColumns._ID} DESC"
         val cursor = db.query(
             WordsActivity.FeedReaderContract.FeedEntry.TABLE_NAME,   // The table to query
