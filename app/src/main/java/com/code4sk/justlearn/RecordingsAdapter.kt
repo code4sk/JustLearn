@@ -40,5 +40,12 @@ class RecordingsAdapter(var recList: ArrayList<RecItem>): RecyclerView.Adapter<R
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.text.text = recList[position].file.nameWithoutExtension
+        if(recList[position].check){
+            holder.text.isChecked = true
+            holder.text.setCheckMarkDrawable(R.drawable.our_checkbox)
+        } else {
+            holder.text.isChecked = false
+            holder.text.setCheckMarkDrawable(null)
+        }
     }
 }

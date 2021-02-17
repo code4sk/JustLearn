@@ -52,7 +52,7 @@ class NotificationBroadcastReceiver: BroadcastReceiver() {
             val builder = NotificationCompat.Builder(context, cid)
                 .setSmallIcon(R.drawable.rounded_search)
                 .setContentTitle(temp[rand])
-                .setContentText("learning never stops.")
+                .setContentText("learning never stops")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 //        createNotificationChannel()
 //        val intent = Intent(context, SearchWordActivity::class.java).apply {

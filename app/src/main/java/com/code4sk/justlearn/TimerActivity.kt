@@ -113,7 +113,7 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
                 Log.d(tag, it.toString())
                 if(!it.isDirectory) {
 
-                    recList.add(RecItem(it))
+                    recList.add(RecItem(it, false))
                 }
 
             }
@@ -137,15 +137,21 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         if(selectMode){
             if(adapter.getRecording(position) in selectedRecItems){
                 selectedRecItems.remove(adapter.getRecording(position))
-                newView.isChecked = false
-                newView.checkMarkDrawable = null
+//                newView.isChecked = false
+//                newView.checkMarkDrawable = null
+                adapter.getRecording(position).check = false
+
+                adapter.notifyDataSetChanged()
             } else {
                 selectedRecItems.add(adapter.getRecording(position))
 
-                newView.isChecked = true
-                newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+//                newView.isChecked = true
+//                newView.setCheckMarkDrawable
+                adapter.getRecording(position).check = true
+
+                adapter.notifyDataSetChanged()
             }
-            adapter.notifyDataSetChanged()
+
 
         } else {
                     val uri: Uri = Uri.parse(adapter.getRecording(position).file.absolutePath)
@@ -162,8 +168,11 @@ class TimerActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
             selectMode = true
             findViewById<ImageView>(R.id.deleteRec).visibility = View.VISIBLE
             selectedRecItems.add(adapter.getRecording(position))
-            newView.isChecked = true
-            newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+//            newView.isChecked = true
+//            newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+//            adapter.notifyDataSetChanged()
+            adapter.getRecording(position).check = true
+
             adapter.notifyDataSetChanged()
 //            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
         } else {

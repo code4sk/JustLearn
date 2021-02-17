@@ -5,4 +5,4 @@ import kotlinx.android.parcel.Parcelize
 import java.io.File
 
 @Parcelize
-data class RecItem(val file: File) : Parcelable
+data class RecItem(val file: File, var check: Boolean) : Parcelable

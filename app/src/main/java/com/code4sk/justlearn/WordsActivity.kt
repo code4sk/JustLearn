@@ -27,13 +27,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouchListener, NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var dialog: Dialog
     //    private val randomFileName = "lkjdsfdsafl12"
-    private var selectedWordItems = ArrayList<String>()
+    class Duo(v1:String, v2:Boolean){
+        var name = v1
+        var check = v2
+
+    }
+    private var selectedWordItems = ArrayList<Duo>()
     private var selectMode = false
 
     private val path = Environment.getExternalStorageDirectory().toString()
-    val adapter = WordsAdapter(ArrayList())
+    private val adapter = WordsAdapter(ArrayList())
 
     object FeedReaderContract {
         // Table contents are grouped together in an anonymous object.
@@ -86,7 +90,7 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         val nv = findViewById<NavigationView>(R.id.navigationWords)
         nv.setNavigationItemSelectedListener(this)
 
-        val recList = ArrayList<String>()
+        val recList = ArrayList<Duo>()
 
         val dbHelper = FeedReaderDbHelper(this)
         val db = dbHelper.readableDatabase
@@ -107,9 +111,11 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         with(cursor) {
             while (moveToNext()) {
                 val name = getString(getColumnIndexOrThrow(FeedReaderContract.FeedEntry.COLUMN_NAME))
-                recList.add(name)
+                val item = Duo(name, false)
+                recList.add(item)
             }
         }
+        db.close()
 //        Log.d("checkShubham", recList[0])
         adapter.loadNewData(recList)
         val recyclerView = findViewById<RecyclerView>(R.id.wordRecyclerView)
@@ -119,20 +125,23 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
     }
     override fun onSingleTap(view: View, position: Int) {
 //        Toast.makeText(this, "tap", Toast.LENGTH_SHORT).show()
-        val newView = view.findViewById<CheckedTextView>(R.id.wordText)
-
+//        val newView = view.findViewById<CheckedTextView>(R.id.wordText)
+//        Log.d("checkShubham", newView.text.toString())
         if(selectMode){
-            if(adapter.getWord(position) in selectedWordItems){
-                selectedWordItems.remove(adapter.getWord(position))
-                newView.isChecked = false
-                newView.checkMarkDrawable = null
-            } else {
-                selectedWordItems.add(adapter.getWord(position))
 
-                newView.isChecked = true
-                newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+            if(adapter.getWord(position) in selectedWordItems){
+
+                selectedWordItems.remove(adapter.getWord(position))
+                adapter.getWord(position).check = false
+                adapter.notifyDataSetChanged()
+            } else {
+                Log.d("checkShubham", "1")
+                selectedWordItems.add(adapter.getWord(position))
+                adapter.getWord(position).check = true
+                adapter.notifyDataSetChanged()
+//                Log.d("checkShubham", "${newView.isChecked} ${newView.checkMarkDrawable}")
             }
-            adapter.notifyDataSetChanged()
+
 
         } else {
 
@@ -144,12 +153,14 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 
     override fun onLongTap(view: View, position: Int) {
         val newView = view.findViewById<CheckedTextView>(R.id.wordText)
+        Log.d("checkShubham", newView.text.toString())
         if(!selectMode){
             selectMode = true
             findViewById<ImageView>(R.id.deleteWord).visibility = View.VISIBLE
             selectedWordItems.add(adapter.getWord(position))
-            newView.isChecked = true
-            newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+//            newView.isChecked = true
+//            newView.setCheckMarkDrawable(R.drawable.our_checkbox)
+            adapter.getWord(position).check = true
             adapter.notifyDataSetChanged()
 //            Toast.makeText(this, "long tap", Toast.LENGTH_SHORT).show()
         } else {
@@ -182,7 +193,7 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
 // Issue SQL statement.
 
         selectedWordItems.forEach {
-            val selectionArgs = arrayOf(it)
+            val selectionArgs = arrayOf(it.name)
             val deletedRows = db.delete(FeedReaderContract.FeedEntry.TABLE_NAME, selection, selectionArgs)
         }
 
