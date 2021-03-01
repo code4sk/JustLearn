@@ -56,20 +56,20 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\color-v23\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_radio_to_off_mtrl_ring_outer_animation.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\anim\\btn_radio_to_off_mtrl_ring_outer_animation.xml"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\color_checkbox_themeable_attribute_color.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\checkbox_themeable_attribute_color.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_radio_to_off_mtrl_ring_outer_path_animation.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\anim\\btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\color_checkbox_themeable_attribute_color.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\checkbox_themeable_attribute_color.xml"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_radio_to_off_mtrl_ring_outer_animation.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\anim\\btn_radio_to_off_mtrl_ring_outer_animation.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -168,12 +168,12 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\mtrl_chip_text_color.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mic_white.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\drawable\\mic_white.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_bar_title_item.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mic_white.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\drawable\\mic_white.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -200,20 +200,20 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\mtrl_bottom_nav_colored_ripple_color.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_extended_fab_change_size_motion_spec.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\animator\\mtrl_extended_fab_change_size_motion_spec.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_checkbox_checked_mtrl.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\drawable\\btn_checkbox_checked_mtrl.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_filled_icon_tint.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\mtrl_filled_icon_tint.xml"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_extended_fab_change_size_motion_spec.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\animator\\mtrl_extended_fab_change_size_motion_spec.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\39883fb8cdc1b6bd91de81e910c48f5a\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_filled_icon_tint.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\color\\mtrl_filled_icon_tint.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_book_foreground.xml.flat",
@@ -228,12 +228,12 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\fea151b6270c16ed1df729f308cb7b49\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_dialog_background.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\drawable\\mtrl_dialog_background.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header.xml.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\layout\\nav_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_dialog_background.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\drawable\\mtrl_dialog_background.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_text_view_with_line_height_from_layout.xml.flat",
@@ -2170,6 +2170,10 @@
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_calendar_month_labeled.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d2f9500077bc654d7c543acc4b87e4f\\res\\layout\\mtrl_calendar_month_labeled.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_sort_by_alpha_24.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\src\\main\\res\\drawable\\ic_baseline_sort_by_alpha_24.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\JustLearn\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",

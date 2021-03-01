@@ -1549,6 +1549,7 @@ drawable ic_baseline_local_library_24
 drawable ic_baseline_pause_24
 drawable ic_baseline_play_arrow_24
 drawable ic_baseline_record_voice_over_24
+drawable ic_baseline_sort_by_alpha_24
 drawable ic_baseline_stop_24
 drawable ic_launcher_background
 drawable ic_launcher_book_foreground
@@ -1923,6 +1924,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sortWords
 id spacer
 id spline
 id split_action_bar

@@ -24,6 +24,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouchListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,6 +38,7 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
     }
     private var selectedWordItems = ArrayList<Duo>()
     private var selectMode = false
+    private var sortMode = false
 
     private val path = Environment.getExternalStorageDirectory().toString()
     private val adapter = WordsAdapter(ArrayList())
@@ -201,6 +205,55 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         finish()
         startActivity(intent)
     }
+    fun onSortWords(view: View){
+        val recList = ArrayList<Duo>()
+        selectedWordItems.clear()
+        val dbHelper = FeedReaderDbHelper(this)
+        val db = dbHelper.readableDatabase
+
+        val projection = arrayOf(BaseColumns._ID, FeedReaderContract.FeedEntry.COLUMN_NAME)
+        var sortOrder = ""
+        if(!sortMode){
+            sortOrder = "${FeedReaderContract.FeedEntry.COLUMN_NAME} DESC"
+        } else {
+            sortOrder = "${BaseColumns._ID} DESC"
+        }
+        sortMode = !sortMode
+        val cursor = db.query(
+            FeedReaderContract.FeedEntry.TABLE_NAME,   // The table to query
+            projection,             // The array of columns to return (pass null to get all)
+            null,              // The columns for the WHERE clause
+            null,          // The values for the WHERE clause
+            null,                   // don't group the rows
+            null,                   // don't filter by row groups
+            sortOrder               // The sort order
+        )
+        with(cursor) {
+            while (moveToNext()) {
+                val name = getString(getColumnIndexOrThrow(FeedReaderContract.FeedEntry.COLUMN_NAME))
+                val item = Duo(name, false)
+                recList.add(item)
+            }
+        }
+
+        db.close()
+        if(!sortMode){
+            val file = File(path, "just_learn.txt")
+            FileOutputStream(file).use{
+                it.write("just_learn\n".toByteArray())
+            }
+            for(key in recList){
+                file.appendText("${key.name}\n")
+            }
+        } else {
+            recList.reverse()
+        }
+
+
+
+//        Log.d("checkShubham", recList[0])
+        adapter.loadNewData(recList)
+    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 //        Log.d(tag, "${item.itemId} ----- ${R.id.menuTimer} ")
         return when(item.itemId){
@@ -233,3 +286,5 @@ class WordsActivity : AppCompatActivity(), RecyclerTouchListener.OnRecyclerTouch
         startActivity(Intent(this, WordsActivity::class.java))
     }
 }
+
+
