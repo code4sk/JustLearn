@@ -38,7 +38,6 @@
 
         </activity>
         <activity android:name=".TimerActivity"
-                android:windowSoftInputMode="stateVisible"
                 >
 
         </activity>

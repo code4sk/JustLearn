@@ -45,9 +45,7 @@
 
         <activity android:name="com.code4sk.justlearn.WordsActivity" >
         </activity>
-        <activity
-            android:name="com.code4sk.justlearn.TimerActivity"
-            android:windowSoftInputMode="stateVisible" >
+        <activity android:name="com.code4sk.justlearn.TimerActivity" >
         </activity>
         <activity
             android:name="com.code4sk.justlearn.SearchWordActivity"
