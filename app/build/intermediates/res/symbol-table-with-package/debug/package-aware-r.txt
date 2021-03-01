@@ -1600,6 +1600,11 @@ drawable selection_band_overlay
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font caviar_dreams
+font dancing_script_regular
+font learning_curve_regular_ot_tt
+font quicksand_bold
+font quicksand_regular
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -2495,6 +2500,8 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style RobotoButtonStyle
+style RobotoTextViewStyle
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon
