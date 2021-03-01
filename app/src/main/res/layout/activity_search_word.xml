@@ -35,5 +35,7 @@
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="addWordBtn"/>
+            android:onClick="addWordBtn"
+            android:backgroundTint="@color/emerald"
+            android:textColor="#ffffff"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -987,6 +987,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_book_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1550,6 +1551,7 @@ drawable ic_baseline_play_arrow_24
 drawable ic_baseline_record_voice_over_24
 drawable ic_baseline_stop_24
 drawable ic_launcher_background
+drawable ic_launcher_book_foreground
 drawable ic_launcher_foreground
 drawable ic_menu_black_24dp
 drawable ic_menu_emerald_24dp
@@ -2141,6 +2143,8 @@ layout toolbar
 menu action_mode_menu
 menu nav_menu
 mipmap ic_launcher
+mipmap ic_launcher_book
+mipmap ic_launcher_book_round
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string CHANNEL_ID

@@ -38,6 +38,7 @@ class SearchWordActivity : AppCompatActivity() {
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_SEND -> {
                     val text = addWordBox.text
+
                     addWord(text.toString())
 //                    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
                     true
@@ -58,6 +59,8 @@ class SearchWordActivity : AppCompatActivity() {
     }
 
     fun addWord(word: String){
+        if(word == "")
+            return
         val dbHelper = WordsActivity.FeedReaderDbHelper(this)
         val db = dbHelper.writableDatabase
         val selectionArgs = arrayOf(word)

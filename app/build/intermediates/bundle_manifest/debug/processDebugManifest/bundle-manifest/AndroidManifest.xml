@@ -43,9 +43,7 @@
         <!--  -->
         <!-- </service> -->
 
-        <activity
-            android:name="com.code4sk.justlearn.WordsActivity"
-            android:windowSoftInputMode="stateVisible" >
+        <activity android:name="com.code4sk.justlearn.WordsActivity" >
         </activity>
         <activity
             android:name="com.code4sk.justlearn.TimerActivity"

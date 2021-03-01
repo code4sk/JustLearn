@@ -34,11 +34,12 @@
 <!--        </service>-->
 
         <activity android:name=".WordsActivity"
-                android:windowSoftInputMode="stateVisible">
+                >
 
         </activity>
         <activity android:name=".TimerActivity"
-                android:windowSoftInputMode="stateVisible">
+                android:windowSoftInputMode="stateVisible"
+                >
 
         </activity>
         <activity
